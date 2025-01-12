@@ -11,6 +11,10 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.send("Hello from backend!");
+});
+
 // Slack OAuth Start
 app.get("/install", (req, res) => {
   const slackAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=${SLACK_CLIENT_ID}&scope=channels:read,chat:write&redirect_uri=${REDIRECT_URI}`;
